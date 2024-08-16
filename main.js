@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cellIndex = target.parentElement.cellIndex;
 
             if (!inGame){
-                startGame(rowIndex, cellIndex);
+                startGame(cellIndex, rowIndex);
             }
 
         }

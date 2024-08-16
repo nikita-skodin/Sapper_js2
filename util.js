@@ -18,47 +18,33 @@ function initGameTable(table, fieldSize, firstX, firstY) {
 }
 
 function getExcludedCells(x, y) {
-    let result = []
-    let base = y * 10 + x
-    result.push(base);
-    if (x + 1 < 10) {
-        let right = y * 10 + 1
-        result.push(right);
+    const size = 10;
+    const result = [];
+
+    function isValid(x, y) {
+        return x >= 0 && x < size && y >= 0 && y < size;
     }
-    if (x - 1 > -1) {
-        let left = y * 10 - 1
-        result.push(left);
-    }
-    if (y - 1 > -1) {
-        let up = (y - 1) * 10 + x;
-        result.push(up);
 
-        if (x - 1 > -1) {
-            let upLeft = (y - 1) * 10 + x - 1;
-            result.push(upLeft);
+    const offsets = [
+        {dx: 0, dy: 0},    // Self
+        {dx: 1, dy: 0},    // Right
+        {dx: -1, dy: 0},   // Left
+        {dx: 0, dy: -1},   // Up
+        {dx: 1, dy: -1},   // Up-right
+        {dx: -1, dy: -1},  // Up-left
+        {dx: 0, dy: 1},    // Down
+        {dx: 1, dy: 1},    // Down-right
+        {dx: -1, dy: 1}    // Down-left
+    ];
+
+    offsets.forEach(({dx, dy}) => {
+        const newX = x + dx;
+        const newY = y + dy;
+        if (isValid(newX, newY)) {
+            result.push(newY * size + newX);
         }
+    });
 
-        if (x + 1 < 10) {
-            let upRight = (y - 1) * 10 + x + 1;
-            result.push(upRight);
-        }
-
-    }
-    if (y + 1 < 10) {
-        let down = (y + 1) * 10 + x;
-        result.push(down);
-
-        if (x - 1 > -1){
-            let downLeft = (y + 1) * 10 + x - 1;
-            result.push(downLeft);
-        }
-
-        if (x + 1 < 10) {
-            let downRight = (y + 1) * 10 + x + 1;
-            result.push(downRight);
-        }
-
-    }
     return result;
 }
 
