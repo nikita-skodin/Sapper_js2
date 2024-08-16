@@ -1,0 +1,56 @@
+/* Основной контейнер */
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #333;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+}
+
+/* Игровое поле (таблица) */
+#game-table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#game-table td {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    text-align: center; /* Центрирование содержимого по горизонтали */
+    vertical-align: middle; /* Центрирование содержимого по вертикали */
+}
+
+/* Панель управления */
+#control-panel {
+    display: flex;
+    gap: 10px;
+}
+
+#control-panel button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.square {
+    width: 100%; /* Ширина, чтобы заполнить всю ячейку */
+    height: 100%; /* Высота, чтобы заполнить всю ячейку */
+    background-color: #d3d3d3; /* Начальный цвет фона */
+    transition: background-color 0.3s ease; /* Плавный переход цвета */
+}
+
+td:hover .square {
+    background-color: #a9b3a9; /* Цвет фона div при наведении на ячейку таблицы */
+}
