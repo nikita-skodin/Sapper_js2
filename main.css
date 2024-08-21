@@ -1,42 +1,54 @@
-/* Основной контейнер */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
     justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    width: 900px;
+    height: 900px;
     border: 2px solid #333;
-    padding: 20px;
+    padding: 50px;
     box-sizing: border-box;
     background-color: #f0f0f0;
 }
 
-/* Игровое поле (таблица) */
 #game-table {
     border-collapse: collapse;
-    margin-bottom: 20px;
-    width: 100%;
-    border: 1px solid #333;
+    width: 800px;
+    height: 800px;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-table tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #game-table td {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
+    box-sizing: border-box;
     border: 1px solid #333;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; /* Центрирование содержимого по горизонтали */
-    vertical-align: middle; /* Центрирование содержимого по вертикали */
+    text-align: center;
+    vertical-align: middle;
 }
 
-tr {
-    display: flex;
-}
-
-/* Панель управления */
 #control-panel {
     display: flex;
     gap: 10px;
@@ -45,6 +57,8 @@ tr {
 #control-panel button {
     padding: 10px 20px;
     font-size: 16px;
+    height: 40px;
+    width: 100px;
     cursor: pointer;
     border: none;
     background-color: #333;
@@ -53,12 +67,101 @@ tr {
 }
 
 .square {
-    width: 80%; /* Ширина, чтобы заполнить всю ячейку */
-    height: 80%; /* Высота, чтобы заполнить всю ячейку */
-    background-color: #d3d3d3; /* Начальный цвет фона */
-    transition: background-color 0.3s ease; /* Плавный переход цвета */
+    width: 80%;
+    height: 80%;
+    background-color: #d3d3d3;
+    transition: background-color 0.3s ease;
 }
 
 td:hover .square {
-    background-color: #a9b3a9; /* Цвет фона div при наведении на ячейку таблицы */
+    background-color: #a9b3a9;
+}
+
+/*1080*/
+@media (max-width: 1920px) {
+
+}
+
+/*720*/
+@media (max-width: 1280px) {
+    #game-container {
+        width: 700px;
+        height: 700px;
+    }
+
+    #game-table {
+        width: 600px;
+        height: 600px;
+    }
+
+    #game-table td {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/*576*/
+@media (max-width: 1024px) {
+    #game-container {
+        width: 500px;
+        height: 500px;
+    }
+
+    #game-table {
+        width: 400px;
+        height: 400px;
+    }
+
+    #game-table td {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/*1024*/
+@media (max-width: 768px) {
+    #game-container {
+        width: 500px;
+        height: 500px;
+    }
+
+    #game-table {
+        width: 400px;
+        height: 400px;
+    }
+
+    #game-table td {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/*240*/
+@media (max-width: 320px) {
+    #game-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    #game-table {
+        width: 170px;
+        height: 170px;
+    }
+
+    #game-table td {
+        width: 17px;
+        height: 17px;
+    }
+
+    #control-panel button {
+        padding: 0 0;
+        font-size: 4px;
+        height: 10px;
+        width: 25px;
+    }
+
+    #game-container {
+        gap: 5px;
+    }
+
 }
